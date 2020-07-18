@@ -3,7 +3,7 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <body style="margin : 0px; overflow: hidden;">
       <a-scene embedded arjs>
-            <a-entity
+            <!--a-entity
                 position="-15 0 -15"
                 scale="0.2 0.2 0.2"
                 gltf-model="models/glTF/RE-THINK/RE-THINK.gltf"
@@ -12,7 +12,11 @@
                 position="-10 -5 -16"
                 scale="0.5 0.5 0.5"
                 gltf-model="models/glTF/REUSE/REUSE.gltf"
-            ></a-entity>
+            ></a-entity-->
+            <a-assets>
+                <a-asset-item id="re-words" src="models/glTF/RE-WORDS/RE-WORDS.gltf"></a-asset-item>
+            </a-assets>
+            <a-entity gltf-model="#re-words" position="-6.6 1.15 0" scale="0.2 0.4 0.05"></a-entity>
       </a-scene>
     </body>
 </html>
