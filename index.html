@@ -33,16 +33,17 @@
             }
         </style>
         <script>
+          function changeColor(el, color) {
+              el.setAttribute('color', color);
+          }
+
           AFRAME.registerComponent('regenerate', {
             init: function () {
               var data = this.data;
               var el = this.el;
 
               el.addEventListener('click', function () {
-                  //alert('REGENERATE');
-                  c = el.getAttribute('color');
-                  el.setAttribute('color', 'red');
-                  c = el.getAttribute('color');
+                  changeColor(el, 'red');
               });
             }
           });
@@ -52,7 +53,7 @@
               var el = this.el;
 
               el.addEventListener('click', function () {
-                //alert('REPURPOSE');
+                  changeColor(el, 'red');
               });
             }
           });
@@ -62,7 +63,7 @@
               var el = this.el;
 
               el.addEventListener('click', function () {
-                //alert('RETHINK');
+                  changeColor(el, 'red');
               });
             }
           });
@@ -72,7 +73,7 @@
               var el = this.el;
 
               el.addEventListener('click', function () {
-                //alert('REUSE');
+                  changeColor(el, 'red');
               });
             }
           });
@@ -80,99 +81,58 @@
     </head>
     <body>
         <div id="container">
-          <div id="header">
-            <!--button onclick="zoomIn()">Zoom in</button>
-            <button onclick="zoomOut()">Zoom out</button-->
-          </div>
-          <a-scene>
-              <a-entity camera look-controls position="-0.2 1.6 -0.5">
-                <a-entity
-                    cursor="fuse: true; fuseTimeout: 500"
-                    position="0 0 -0.1"
-                    geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.002"
-                    material="color: black; shader: flat">
-                </a-entity>
-              </a-entity>
-              <a-entity
-                  regenerate
-                  cursor-listerner
-                  text="value: Regenerate!; color: #BBB"
-                  position="0.2 1.6 -1"
-              >
-              </a-entity>
-              <a-entity
-                  repurpose
-                  cursor-listerner
-                  text="value: Repurpose!; color: #BBB"
-                  position="-0.1 1.6 -0.75"
-              >
-              </a-entity>
-              <a-entity
-                  rethink
-                  cursor-listerner
-                  text="value: Rethink!; color: #BBB"
-                  position="0.5 1.6 -0.75"
-              >
-              </a-entity>
-              <a-entity
-                  reuse
-                  cursor-listerner
-                  text="value: Reuse!; color: #BBB"
-                  position="0.2 1.6 -0.5"
-              >
-              </a-entity>
-
-              <!--a-assets>
-                  <a-asset-item id="rethink" src="models/glTF/RETHINK/RETHINK.gltf"></a-asset-item>
-              </a-assets>
-              <a-assets>
-                  <a-asset-item id="reuse" src="models/glTF/REUSE/REUSE.gltf"></a-asset-item>
-              </a-assets>
-              <a-assets>
-                  <a-asset-item id="repurpose" src="models/glTF/REPURPOSE/REPURPOSE.gltf"></a-asset-item>
-              </a-assets>
-              <a-assets>
-                  <a-asset-item id="regenerate" src="models/glTF/REGENERATE/REGENERATE.gltf"></a-asset-item>
-              </a-assets>
+          <a-scene
+            vr-mode-ui="enabled: false;"
+            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+          >
               <a-entity camera look-controls>
-                <a-entity
-                    cursor="fuse: true; fuseTimeout: 500"
-                    position="0 0 -0.1"
-                    geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.002"
-                    material="color: black; shader: flat">
-                </a-entity>
+                  <a-entity
+                      cursor="fuse: true; fuseTimeout: 500"
+                      position="0 0 -0.1"
+                      geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.002"
+                      material="color: black; shader: flat">
+                  </a-entity>
               </a-entity>
-              <a-entity
-                  rethink
-                  cursor-listerner
-                  gltf-model="#rethink"
-                  position="-5.75 -0.5 -0.6"
-                  scale="0.2 0.4 0.05"
-              >
-              </a-entity>
-              <a-entity
-                  reuse
-                  gltf-model="#reuse"
-                  position="-7.75 -0.5 -0.1"
-                  scale="0.2 0.4 0.05"
-              >
-              </a-entity>
-              <a-entity
-                  repurpose
-                  gltf-model="#repurpose"
-                  position="-6.75 -0.5 0.6"
-                  scale="0.2 0.4 0.05"
-              >
-              </a-entity>
-              <a-entity
-                  regenerate
-                  gltf-model="#regenerate"
-                  position="-5.75 -0.5 -0.1"
-                  scale="0.2 0.4 0.05"
-              >
-              </a-entity-->
+                  <a-entity rotation = "0 0 0">
+                      <a-text
+                          regenerate
+                          value = "Regenerate!"
+                          color = "#BBB"
+                          position = "0 0 -1"
+                      >
+                      </a-text>
+                  </a-entity>
+                  <a-entity rotation = "0 90 0">
+                      <a-text
+                          repurpose
+                          cursor-listerner
+                          value = "Repurpose!"
+                          color = "#BBB"
+                          position = "0 0 -1"
+                      >
+                      </a-text>
+                  </a-entity>
+                  <a-entity rotation = "0 -90 0">
+                      <a-text
+                          rethink
+                          cursor-listerner
+                          value = "Rethink!"
+                          color = "#BBB"
+                          position = "0 0 -1"
+                      >
+                      </a-text>
+                  </a-entity>
+                  <a-entity rotation = "0 180 0">
+                      <a-text
+                          reuse
+                          cursor-listerner
+                          value = "Reuse!"
+                          color = "#BBB"
+                          position = "0 0 -1"
+                      >
+                      </a-text>
+                  </a-entity>
           </a-scene>
-          <div id="footer">Arup</div>
         </div>
     </body>
 </html>
