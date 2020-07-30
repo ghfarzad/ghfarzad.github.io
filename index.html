@@ -1,138 +1,113 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="Hello, World! - A-Frame">
-        <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-        <style>
-            html, body {
-              margin: 0;
-              padding: 0;
-            }
+<!doctype html>
+<html lang="en">
+<head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <style>
+        #webcam {
+            opacity:0.9;
+            position: fixed;
+            background-size: 100% 100%;
+            top: 0; left: 0;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+        }
 
-            #container {
-              display: flex;
-              flex-direction: column;
-            }
+        /* The Modal (background) */
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
 
-            #header {
-              display: flex;
-              align-items: center;
-              height: 92px;
-              border: 1px solid #DCE5EB;
-              padding: 0 30px;
-            }
+        /* Modal Content/Box */
+        .modal-content {
+          background-color: #fefefe;
+          margin: 15% auto; /* 15% from the top and centered */
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%; /* Could be more or less, depending on screen size */
+        }
 
-            #footer {
-              display: flex;
-            }
+        /* The Close Button */
+        .close {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
 
-            a-scene {
-              min-height: calc(100vh - 94px - 94px);
-              background-color: #FFFFFF;
-            }
-        </style>
-        <script>
-          function changeColor(el, color) {
-              el.setAttribute('color', color);
-          }
-
-          AFRAME.registerComponent('regenerate', {
-            init: function () {
-              var data = this.data;
-              var el = this.el;
-
-              el.addEventListener('click', function () {
-                  changeColor(el, 'red');
-              });
-            }
-          });
-          AFRAME.registerComponent('repurpose', {
-            init: function () {
-              var data = this.data;
-              var el = this.el;
-
-              el.addEventListener('click', function () {
-                  changeColor(el, 'red');
-              });
-            }
-          });
-          AFRAME.registerComponent('rethink', {
-            init: function () {
-              var data = this.data;
-              var el = this.el;
-
-              el.addEventListener('click', function () {
-                  changeColor(el, 'red');
-              });
-            }
-          });
-          AFRAME.registerComponent('reuse', {
-            init: function () {
-              var data = this.data;
-              var el = this.el;
-
-              el.addEventListener('click', function () {
-                  changeColor(el, 'red');
-              });
-            }
-          });
-        </script>
-    </head>
-    <body>
-        <div id="container">
-          <a-scene
-            vr-mode-ui="enabled: false;"
-            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-          >
-              <a-entity camera look-controls>
-                  <a-entity
-                      cursor="fuse: true; fuseTimeout: 500"
-                      position="0 0 -0.1"
-                      geometry="primitive: ring; radiusInner: 0.001; radiusOuter: 0.002"
-                      material="color: black; shader: flat">
-                  </a-entity>
-              </a-entity>
-                  <a-entity rotation = "0 0 0">
-                      <a-text
-                          regenerate
-                          value = "Regenerate!"
-                          color = "#BBB"
-                          position = "0 0 -1"
-                      >
-                      </a-text>
-                  </a-entity>
-                  <a-entity rotation = "0 90 0">
-                      <a-text
-                          repurpose
-                          cursor-listerner
-                          value = "Repurpose!"
-                          color = "#BBB"
-                          position = "0 0 -1"
-                      >
-                      </a-text>
-                  </a-entity>
-                  <a-entity rotation = "0 -90 0">
-                      <a-text
-                          rethink
-                          cursor-listerner
-                          value = "Rethink!"
-                          color = "#BBB"
-                          position = "0 0 -1"
-                      >
-                      </a-text>
-                  </a-entity>
-                  <a-entity rotation = "0 180 0">
-                      <a-text
-                          reuse
-                          cursor-listerner
-                          value = "Reuse!"
-                          color = "#BBB"
-                          position = "0 0 -1"
-                      >
-                      </a-text>
-                  </a-entity>
-          </a-scene>
-        </div>
-    </body>
+        .close:hover,
+        .close:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+    </style>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="contentDef"></div>
+        <div id="arupLink">Link provided by Arup</div>
+        <div id="cityLink">Link provided by TO</div>
+      </div>
+    </div>
+    <video id="webcam" autoplay playsinline></video>
+    <a-scene vr-mode-ui="enabled: false">
+        <a-entity rotation = "0 0 0">
+            <a-text
+                regenerate
+                value = "RE-generate!"
+                color = "#BBB"
+                position = "0 0 -1"
+            >
+            </a-text>
+        </a-entity>
+        <a-entity rotation = "0 90 0">
+            <a-text
+                repurpose
+                cursor-listerner
+                value = "RE-purpose!"
+                color = "#BBB"
+                position = "0 0 -1"
+            >
+            </a-text>
+        </a-entity>
+        <a-entity rotation = "0 -90 0">
+            <a-text
+                rethink
+                cursor-listerner
+                value = "RE-think!"
+                color = "#BBB"
+                position = "0 0 -1"
+            >
+            </a-text>
+        </a-entity>
+        <a-entity rotation = "0 180 0">
+            <a-text
+                reuse
+                cursor-listerner
+                value = "RE-use!"
+                color = "#BBB"
+                position = "0 0 -1"
+            >
+            </a-text>
+        </a-entity>
+        <a-entity camera look-controls>
+            <a-entity cursor="fuse: true; fuseTimeout: 500"
+                position="0 0 -0.6"
+                geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+                material="color: black; shader: flat">
+            </a-entity>
+        </a-entity>
+    </a-scene>
+</body>
 </html>
