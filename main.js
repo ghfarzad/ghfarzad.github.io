@@ -19,9 +19,9 @@ function showPopup(el) {
             'link' : 'https://www.arup.com/perspectives/publications/research/section/circular-economy-in-the-built-environment',
             'text' : 'Circular Economy in the built Environment'
         },
-        'repurpose' : {
+        'reduce' : {
             'link' : 'https://www.toronto.ca/services-payments/recycling-organics-garbage/long-term-waste-strategy/working-toward-a-circular-economy/',
-            'text' : 'The City of Toronot\'s Circular Economy Highlights'
+            'text' : 'The City of Toronto\'s Circular Economy Highlights'
         },
         'rethink'   : {
             'link' : 'https://www.arup.com/projects/business-guide-to-low-carbon-economy',
@@ -29,7 +29,7 @@ function showPopup(el) {
         },
         'reuse'     : {
             'link' : 'https://www.toronto.ca/wp-content/uploads/2017/10/8ed4-Toronto-Waste-Strategy-Exec-Summary-FINAL-AODA.pdf',
-            'text' : 'The City of Toronot\'s Log Term Waste Management Strategy'
+            'text' : 'The City of Toronto\'s Log Term Waste Management Strategy'
         }
     };
 
@@ -75,7 +75,15 @@ function cameraStart() {
 }
 
 // Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);
+//window.addEventListener("load", cameraStart, false);
+
+
+function initializeElement(el)
+{
+    el.setAttribute('scale',    {'x' :  0.1, 'y' :  0.1, 'z' :  0.1 });
+    el.setAttribute('position', { 'x' : 0,   'y' :  0,   'z' : -3   });
+    el.setAttribute('rotation', { 'x' : 0,   'y' : -20,  'z' :  0   });
+}
 
 // Component to change to a sequential color on cursor suspension.
 AFRAME.registerComponent('cursor-listener', {
@@ -101,10 +109,12 @@ init: function () {
   el.addEventListener('mouseleave', function () {
       hidePopup(el);
   });
+
+  initializeElement(el);
 }
 });
 
-AFRAME.registerComponent('repurpose', {
+AFRAME.registerComponent('reduce', {
 init: function () {
   var data = this.data;
   var el = this.el;
@@ -115,6 +125,8 @@ init: function () {
   el.addEventListener('mouseleave', function () {
       hidePopup(el);
   });
+
+  initializeElement(el);
 }
 });
 
@@ -129,6 +141,8 @@ init: function () {
   el.addEventListener('mouseleave', function () {
       hidePopup(el);
   });
+
+  initializeElement(el);
 }
 });
 
@@ -143,5 +157,7 @@ init: function () {
   el.addEventListener('mouseleave', function () {
       hidePopup(el);
   });
+
+  initializeElement(el);
 }
 });
