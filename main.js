@@ -2,17 +2,40 @@ function changeColor(el, color) {
   el.setAttribute('color', color);
 }
 
-function hideTorontoWasteStrategy(el) {
+function hidePopup(el) {
     changeColor(el, 'grey');
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
 }
 
-function showTorontoWasteStrategy(el) {
+function showPopup(el) {
     changeColor(el, 'red');
 
     var div = document.getElementById('contentDef');
     div.innerHTML = 'Here goes the definition for ' + el.getAttribute('value');
+
+    var hyperlinkData = {
+        'regenerate': {
+            'link' : 'https://www.arup.com/perspectives/publications/research/section/circular-economy-in-the-built-environment',
+            'text' : 'Circular Economy in the built Environment'
+        },
+        'repurpose' : {
+            'link' : 'https://www.toronto.ca/services-payments/recycling-organics-garbage/long-term-waste-strategy/working-toward-a-circular-economy/',
+            'text' : 'The City of Toronot\'s Circular Economy Highlights'
+        },
+        'rethink'   : {
+            'link' : 'https://www.arup.com/projects/business-guide-to-low-carbon-economy',
+            'text' : 'Low Carbon Economy'
+        },
+        'reuse'     : {
+            'link' : 'https://www.toronto.ca/wp-content/uploads/2017/10/8ed4-Toronto-Waste-Strategy-Exec-Summary-FINAL-AODA.pdf',
+            'text' : 'The City of Toronot\'s Log Term Waste Management Strategy'
+        }
+    };
+
+    var link = document.getElementById('infoLink');
+    link.href = hyperlinkData[el.getAttributeNames()[0]]['link'];
+    link.innerHTML = hyperlinkData[el.getAttributeNames()[0]]['text'];
 
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
@@ -73,10 +96,10 @@ init: function () {
   var el = this.el;
 
   el.addEventListener('click', function () {
-      showTorontoWasteStrategy(el);
+      showPopup(el);
   });
   el.addEventListener('mouseleave', function () {
-      hideTorontoWasteStrategy(el);
+      hidePopup(el);
   });
 }
 });
@@ -87,10 +110,10 @@ init: function () {
   var el = this.el;
 
   el.addEventListener('click', function () {
-      showTorontoWasteStrategy(el);
+      showPopup(el);
   });
   el.addEventListener('mouseleave', function () {
-      hideTorontoWasteStrategy(el);
+      hidePopup(el);
   });
 }
 });
@@ -101,10 +124,10 @@ init: function () {
   var el = this.el;
 
   el.addEventListener('click', function () {
-      showTorontoWasteStrategy(el);
+      showPopup(el);
   });
   el.addEventListener('mouseleave', function () {
-      hideTorontoWasteStrategy(el);
+      hidePopup(el);
   });
 }
 });
@@ -115,10 +138,10 @@ init: function () {
   var el = this.el;
 
   el.addEventListener('click', function () {
-      showTorontoWasteStrategy(el);
+      showPopup(el);
   });
   el.addEventListener('mouseleave', function () {
-      hideTorontoWasteStrategy(el);
+      hidePopup(el);
   });
 }
 });
