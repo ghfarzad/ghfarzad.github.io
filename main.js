@@ -24,7 +24,7 @@ function showPopup(el) {
                 },
                 {
                     'link' : 'https://www.arup.com/expertise/services/advisory-services/sustainable-futures',
-                    'text' : 'Find out more about Arup’s Sustainability expertise'
+                    'text' : 'Find out more about Arup\’s Sustainability expertise'
                 }
             ]
         },
@@ -34,7 +34,7 @@ function showPopup(el) {
             'hyperlinks' : [
                 {
                     'link' : 'https://www.arup.com/perspectives/publications/research/section/madrid-and-natural',
-                    'text' : 'How to regulate a city’s urban environment using nature-based solutions?'
+                    'text' : 'How to regulate a city\’s urban environment using nature-based solutions?'
                 }
             ]
         },
@@ -114,7 +114,7 @@ function cameraStart() {
 }
 
 // Start the video stream when the window loads
-//window.addEventListener("load", cameraStart, false);
+window.addEventListener("load", cameraStart, false);
 
 
 function initializeElement(el)
