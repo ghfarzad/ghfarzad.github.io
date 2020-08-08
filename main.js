@@ -12,6 +12,7 @@ function showPopup(el) {
     var content = {
         'rethink'   : {
             'definition' : 'How do we decouple economic growth from finite resource consumption? This requires rethinking and redefining our behaviours as consumers and citizens, as well as what our cities could look like in the future.',
+            'funFact'    : 'Did you know?',
             'hyperlinks' : [
                 {
                     'link' : 'https://www.toronto.ca/city-government/planning-development/planning-studies-initiatives/king-street-pilot/',
@@ -29,6 +30,7 @@ function showPopup(el) {
         },
         'regenerate': {
             'definition' : 'Restoring and retaining the health of our ecosystems by returning recovered biological resources to the biosphere and shifting to renewable energy sources.',
+            'funFact'    : 'Did you know? From City?',
             'hyperlinks' : [
                 {
                     'link' : 'https://www.arup.com/perspectives/publications/research/section/madrid-and-natural',
@@ -38,11 +40,13 @@ function showPopup(el) {
         },
         'reuse'     : {
             'definition' : 'Prolonging an asset’s life at its optimum value by maximizing utilization and finding inventive new uses through new ways of collaborating and re-examining supply chains.',
+            'funFact'    : 'Did you know? 100% of the PVC pipes used for this installation are construction scrap that would have otherwise gone to landfill.',
             'hyperlinks' : [
             ]
         },
         'reduce' : {
             'definition' : 'Preventing waste generation where possible to conserve resources.',
+            'funFact'    : 'Did you know? From City?',
             'hyperlinks' : [
                 {
                     'link' : 'https://www.toronto.ca/wp-content/uploads/2017/10/8ed4-Toronto-Waste-Strategy-Exec-Summary-FINAL-AODA.pdf',
@@ -57,6 +61,7 @@ function showPopup(el) {
     };
 
     document.getElementById('contentDef').innerHTML = content[el.getAttributeNames()[0]]['definition'];
+    document.getElementById('contentFact').innerHTML = content[el.getAttributeNames()[0]]['funFact'];
 
     document.getElementById('contentLinks').innerHTML = '';
 
