@@ -9,33 +9,67 @@ function hidePopup(el) {
 }
 
 function showPopup(el) {
-    changeColor(el, 'red');
-
-    var div = document.getElementById('contentDef');
-    div.innerHTML = 'Here goes the definition for ' + el.getAttribute('value');
-
-    var hyperlinkData = {
-        'regenerate': {
-            'link' : 'https://www.arup.com/perspectives/publications/research/section/circular-economy-in-the-built-environment',
-            'text' : 'Circular Economy in the built Environment'
-        },
-        'reduce' : {
-            'link' : 'https://www.toronto.ca/services-payments/recycling-organics-garbage/long-term-waste-strategy/working-toward-a-circular-economy/',
-            'text' : 'The City of Toronto\'s Circular Economy Highlights'
-        },
+    var content = {
         'rethink'   : {
-            'link' : 'https://www.arup.com/projects/business-guide-to-low-carbon-economy',
-            'text' : 'Low Carbon Economy'
+            'definition' : 'How do we decouple economic growth from finite resource consumption? This requires rethinking and redefining our behaviours as consumers and citizens, as well as what our cities could look like in the future.',
+            'hyperlinks' : [
+                {
+                    'link' : 'https://www.toronto.ca/city-government/planning-development/planning-studies-initiatives/king-street-pilot/',
+                    'text' : 'Rethinking King Street'
+                },
+                {
+                    'link' : 'https://www.toronto.ca/city-government/planning-development/planning-studies-initiatives/king-street-pilot/',
+                    'text' : 'Circular Economy and the Built Environment'
+                },
+                {
+                    'link' : 'https://www.arup.com/expertise/services/advisory-services/sustainable-futures',
+                    'text' : 'Find out more about Arup’s Sustainability expertise'
+                }
+            ]
+        },
+        'regenerate': {
+            'definition' : 'Restoring and retaining the health of our ecosystems by returning recovered biological resources to the biosphere and shifting to renewable energy sources.',
+            'hyperlinks' : [
+                {
+                    'link' : 'https://www.arup.com/perspectives/publications/research/section/madrid-and-natural',
+                    'text' : 'How to regulate a city’s urban environment using nature-based solutions?'
+                }
+            ]
         },
         'reuse'     : {
-            'link' : 'https://www.toronto.ca/wp-content/uploads/2017/10/8ed4-Toronto-Waste-Strategy-Exec-Summary-FINAL-AODA.pdf',
-            'text' : 'The City of Toronto\'s Log Term Waste Management Strategy'
+            'definition' : 'Prolonging an asset’s life at its optimum value by maximizing utilization and finding inventive new uses through new ways of collaborating and re-examining supply chains.',
+            'hyperlinks' : [
+            ]
+        },
+        'reduce' : {
+            'definition' : 'Preventing waste generation where possible to conserve resources.',
+            'hyperlinks' : [
+                {
+                    'link' : 'https://www.toronto.ca/wp-content/uploads/2017/10/8ed4-Toronto-Waste-Strategy-Exec-Summary-FINAL-AODA.pdf',
+                    'text' : 'City of Toronto Waste Strategy Summary'
+                },
+                {
+                    'link' : 'https://www.toronto.ca/services-payments/recycling-organics-garbage/long-term-waste-strategy/working-toward-a-circular-economy/',
+                    'text' : 'How the Toronto Waste Strategy relates to Circular Economy'
+                }
+            ]
         }
     };
 
-    var link = document.getElementById('infoLink');
-    link.href = hyperlinkData[el.getAttributeNames()[0]]['link'];
-    link.innerHTML = hyperlinkData[el.getAttributeNames()[0]]['text'];
+    document.getElementById('contentDef').innerHTML = content[el.getAttributeNames()[0]]['definition'];
+
+    document.getElementById('contentLinks').innerHTML = '';
+
+    content[el.getAttributeNames()[0]]['hyperlinks'].forEach(function (item, index) {
+        var node1 = document.createElement("LI");
+        var node2 = document.createElement("A");
+        node2.href = item['link'];
+        node2.target = '_blank';
+        node2.innerHTML = item['text'];
+
+        node1.appendChild(node2);
+        document.getElementById('contentLinks').appendChild(node1);
+    });
 
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
@@ -75,7 +109,8 @@ function cameraStart() {
 }
 
 // Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);
+//window.addEventListener("load", cameraStart, false);
+
 
 function initializeElement(el)
 {
