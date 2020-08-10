@@ -34,7 +34,7 @@ function showPopup(elementName) {
             ]
         },
         'reuse' : {
-            'definition' : 'Prolonging an asset’s life at its optimum value by maximizing utilization and finding inventive new uses through new ways of collaborating and re-examining supply chains.',
+            'definition' : 'Prolonging an asset\’s life at its optimum value by maximizing utilization and finding inventive new uses through new ways of collaborating and re-examining supply chains.',
             'funFact'    : 'Did you know? 100% of the PVC pipes used for this installation are construction scrap that would have otherwise gone to landfill.',
             'hyperlinks' : [
             ]
