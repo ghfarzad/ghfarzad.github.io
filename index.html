@@ -61,13 +61,16 @@
 
         #contentFact {
             font-family: 'latobold';
-            color: #ffacd6;
         }
 
         #contentLinks {
             font-family: 'latobold';
             list-style-type: none;
             padding: 0;
+        }
+
+        .pink {
+            color: #ffacd6;
         }
     </style>
     <script src="main.js"></script>
@@ -76,8 +79,9 @@
     <div id="definition-modal" class="modal modal-inactive">
       <div class="modal-content">
         <span id="definition-close-btn" class="close">&times;</span>
-        <h2 id="contentDef"></h2>
-        <h3 id="contentFact"></h3>
+        <h3 id="contentDef"></h3>
+        <h4 id="contentDidYouKnow" class="pink"></h4>
+        <h4 id="contentFact"></h4>
         <ul id="contentLinks"></ul>
       </div>
     </div>

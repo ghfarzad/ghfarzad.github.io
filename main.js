@@ -5,57 +5,78 @@ function hidePopup() {
 function showPopup(elementName) {
     var content = {
         'instructions' : {
-            'definition' : "Look for the four words around you and hover your cursor over them to learn more.",
-            'funFact'    : "",
-            'hyperlinks' : []
+            'definition'   : "Look for the four words around you and hover your cursor over them to learn more.",
+            'funFact'      : "",
+            'hyperlinks'   : [],
+            'isDefinition' : false
         },
         'rethink' : {
-            'definition' : 'How do we decouple economic growth from finite resource consumption? This requires rethinking and redefining our behaviours as consumers and citizens, as well as what our cities could look like in the future.',
-            'funFact'    : 'Did you know?',
+            'definition' : 'How do we decouple economic growth from finite resource consumption? This requires redefining our behaviours as consumers and citizens, as well as what our cities could look like in the future.',
+            'funFact'    : 'Globally, another 2.5 billion people will be living in urban areas by 2050, putting immense pressure on resources and infrastructure.',
             'hyperlinks' : [
                 {
                     'link' : 'https://www.toronto.ca/city-government/planning-development/planning-studies-initiatives/king-street-pilot/',
                     'text' : 'Rethinking King Street'
                 },
                 {
-                    'link' : 'https://www.toronto.ca/city-government/planning-development/planning-studies-initiatives/king-street-pilot/',
+                    'link' : 'https://www.arup.com/perspectives/publications/research/section/circular-economy-in-the-built-environment',
                     'text' : 'Circular Economy and the Built Environment'
                 },
                 {
                     'link' : 'https://www.arup.com/expertise/services/advisory-services/sustainable-futures',
                     'text' : 'Find out more about Arup\’s Sustainability expertise'
                 }
-            ]
+            ],
+            'isDefinition' : true
         },
         'regenerate': {
             'definition' : 'Restoring and retaining the health of our ecosystems by returning recovered biological resources to the biosphere and shifting to renewable energy sources.',
-            'funFact'    : 'Did you know? From City?',
+            'funFact'    : 'As of 2018, all new planning applications are required to meet the Toronto Green Standard.',
             'hyperlinks' : [
                 {
                     'link' : 'https://www.arup.com/perspectives/publications/research/section/madrid-and-natural',
                     'text' : 'How to regulate a city\’s urban environment using nature-based solutions?'
+                },
+                {
+                    'link' : 'https://www.toronto.ca/city-government/planning-development/official-plan-guidelines/toronto-green-standard/',
+                    'text' : 'How the City of Toronto is mandating greener development?'
                 }
-            ]
+            ],
+            'isDefinition' : true
         },
         'reuse' : {
-            'definition' : 'Prolonging an asset\’s life at its optimum value by maximizing utilization and finding inventive new uses through new ways of collaborating and re-examining supply chains.',
-            'funFact'    : 'Did you know? 100% of the PVC pipes used for this installation are construction scrap that would have otherwise gone to landfill.',
+            'definition' : 'Finding inventive new end-of -life uses that prolong an asset’s life at its optimum value through re-examining supply chains and exploring new ways of collaborating.',
+            'funFact'    : '100% of the PVC pipes used for this installation are construction scrap that would have otherwise gone to landfill.',
             'hyperlinks' : [
-            ]
+                {
+                    'link' : 'https://www.arup.com/projects/1-triton-square',
+                    'text' : 'For an office refurbishment in London, UK, Arup’s proposal to refurbish and reuse existing glazing reduced façade costs by 66%.'
+                },
+                {
+                    'link' : 'https://www.arup.com/perspectives/publications/promotional-materials/section/transform-and-resuse-low-carbon-futures-for-existing-buildings',
+                    'text' : 'Read more about how Arup is challenging perceptions about the transformation and reuse of buildings.'
+                }
+            ],
+            'isDefinition' : true
         },
         'reduce' : {
-            'definition' : 'Preventing waste generation where possible to conserve resources.',
-            'funFact'    : 'Did you know? From City?',
+            'definition' : 'Changing habits to limit energy consumption and preventing waste generation where possible to conserve resources.',
+            'funFact'    : 'The City of Toronto has implemented the following Community Reduce & Reuse programs: Urban Harvest, Sewing Repair Hubs, Bicycle Repair Hubs, Community Composting, and Sharing and Reuse Spaces.',
             'hyperlinks' : [
                 {
                     'link' : 'https://www.toronto.ca/wp-content/uploads/2017/10/8ed4-Toronto-Waste-Strategy-Exec-Summary-FINAL-AODA.pdf',
-                    'text' : 'City of Toronto Waste Strategy Summary'
+                    'text' : 'City of Toronto Waste Strategy Summary.'
                 },
                 {
                     'link' : 'https://www.toronto.ca/services-payments/recycling-organics-garbage/long-term-waste-strategy/working-toward-a-circular-economy/',
-                    'text' : 'How the Toronto Waste Strategy relates to Circular Economy'
+                    'text' : 'How the Toronto Waste Strategy relates to Circular Economy.'
+                },
+                {
+                    'link' : 'https://www.toronto.ca/services-payments/recycling-organics-garbage/long-term-waste-strategy/waste-reduction/community-reduce-reuse-programs/',
+                    'text' : 'Read more about the City of Toronto’s Community Reduce & Reuse programs.'
                 }
-            ]
+            ],
+            'isDefinition' : true
         }
     };
 
@@ -74,6 +95,8 @@ function showPopup(elementName) {
         node1.appendChild(node2);
         document.getElementById('contentLinks').appendChild(node1);
     });
+
+    document.getElementById('contentDidYouKnow').innerHTML = content[elementName].isDefinition ? 'Did you know?' : '';
 
     var modal = document.getElementById('definition-modal');
     modal.style.display = 'block';
