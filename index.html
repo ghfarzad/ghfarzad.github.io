@@ -17,6 +17,7 @@
         .modal {
           position: fixed; /* Stay in place */
           z-index: 1; /* Sit on top */
+          display: none;
           left: 0;
           top: 0;
           width: 100%; /* Full width */
@@ -26,11 +27,7 @@
           background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
 
-        .modal-active {
-          display: block;
-        }
-
-        .modal-inactive {
+        .invisible {
           display: none;
         }
 
@@ -72,14 +69,6 @@
             list-style-type: none;
             padding: 0;
         }
-
-        #contentInsructions {
-            font-family: 'latobold';
-        }
-
-        #scene {
-            display: none;
-        }
     </style>
     <script src="main.js"></script>
 </head>
@@ -92,47 +81,40 @@
         <ul id="contentLinks"></ul>
       </div>
     </div>
-    <div id="instruction-modal" class="modal modal-active">
-      <div class="modal-content">
-        <span id="instruction-close-btn" class="close">&times;</span>
-        <h2 id="contentInsructions">Look for the four words around you and hover your cursor over them to learn more.</h2>
-      </div>
-    </div>
-    <div id="scene">
-      <video id="webcam" autoplay playsinline></video>
-      <a-scene vr-mode-ui="enabled: false">
-          <a-assets>
-              <a-asset-item id="regenerate" src="models/glTF/Regenerate_out/Regenerate.gltf"></a-asset-item>
-          </a-assets>
-          <a-assets>
-              <a-asset-item id="reduce" src="models/glTF/Reduce_out/Reduce.gltf"></a-asset-item>
-          </a-assets>
-          <a-assets>
-              <a-asset-item id="rethink" src="models/glTF/Rethink_out/Rethink.gltf"></a-asset-item>
-          </a-assets>
-          <a-assets>
-              <a-asset-item id="reuse" src="models/glTF/Reuse_out/Reuse.gltf"></a-asset-item>
-          </a-assets>
-          <a-entity id="regenerate-wrapper" rotation = "0 0 0">
-              <a-entity regenerate gltf-model="#regenerate"></a-entity>
-          </a-entity>
-          <a-entity rotation = "0 90 0">
-              <a-entity reduce gltf-model="#reduce"></a-entity>
-          </a-entity>
-          <a-entity rotation = "0 -90 0">
-              <a-entity rethink id="rethink-model" gltf-model="#rethink"></a-entity>
-          </a-entity>
-          <a-entity rotation = "0 180 0">
-              <a-entity reuse gltf-model="#reuse"></a-entity>
-          </a-entity>
-          <a-entity camera look-controls>
-              <a-entity cursor="fuse: true; fuseTimeout: 500"
-                  position="0 0 -0.6"
-                  geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
-                  material="color: black; shader: flat">
-              </a-entity>
-          </a-entity>
-      </a-scene>
-    </div>
+    <video id="webcam" autoplay playsinline></video>
+    <a-scene vr-mode-ui="enabled: false">
+        <a-assets>
+            <a-asset-item id="regenerate" src="models/glTF/Regenerate_out/Regenerate.gltf"></a-asset-item>
+        </a-assets>
+        <a-assets>
+            <a-asset-item id="reduce" src="models/glTF/Reduce_out/Reduce.gltf"></a-asset-item>
+        </a-assets>
+        <a-assets>
+            <a-asset-item id="rethink" src="models/glTF/Rethink_out/Rethink.gltf"></a-asset-item>
+        </a-assets>
+        <a-assets>
+            <a-asset-item id="reuse" src="models/glTF/Reuse_out/Reuse.gltf"></a-asset-item>
+        </a-assets>
+        <a-entity id="regenerate-wrapper" rotation = "0 0 0">
+            <a-entity regenerate gltf-model="#regenerate"></a-entity>
+        </a-entity>
+        <a-entity rotation = "0 90 0">
+            <a-entity reduce gltf-model="#reduce"></a-entity>
+        </a-entity>
+        <a-entity rotation = "0 -90 0">
+            <a-entity rethink id="rethink-model" gltf-model="#rethink"></a-entity>
+        </a-entity>
+        <a-entity rotation = "0 180 0">
+            <a-entity reuse gltf-model="#reuse"></a-entity>
+        </a-entity>
+        <a-entity camera look-controls>
+            <a-box instructions position="0 0 -3" color="#4CC3D9"></a-box>
+            <a-entity cursor="fuse: true; fuseTimeout: 500"
+                position="0 0 -0.6"
+                geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+                material="color: black; shader: flat">
+            </a-entity>
+        </a-entity>
+    </a-scene>
 </body>
 </html>

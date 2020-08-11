@@ -4,6 +4,11 @@ function hidePopup() {
 
 function showPopup(elementName) {
     var content = {
+        'instructions' : {
+            'definition' : "Look for the four words around you and hover your cursor over them to learn more.",
+            'funFact'    : "",
+            'hyperlinks' : []
+        },
         'rethink' : {
             'definition' : 'How do we decouple economic growth from finite resource consumption? This requires rethinking and redefining our behaviours as consumers and citizens, as well as what our cities could look like in the future.',
             'funFact'    : 'Did you know?',
@@ -185,11 +190,6 @@ window.onclick = function(event) {
     if (event.target == document.getElementById('definition-close-btn')) {
         document.getElementById('definition-modal').style.display = 'none';
     }
-    if (event.target == document.getElementById('instruction-close-btn')) {
-        document.getElementById('instruction-modal').style.display = 'none';
-        document.getElementById('scene').style.display = 'block';
-        alert('clicked');
-    }
 };
 
 // Start the video stream when the window loads
@@ -241,6 +241,16 @@ init: function () {
   initializeElement(el);
   el.addEventListener('model-loaded', (e) => {
     initializeMdoelBoundingBox(el);
+  });
+}
+});
+
+AFRAME.registerComponent('instructions', {
+init: function () {
+  var el = this.el;
+
+  el.addEventListener('click', function () {
+    showPopup(el.getAttributeNames()[0]);
   });
 }
 });
