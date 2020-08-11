@@ -72,6 +72,7 @@
             list-style-type: none;
             padding: 0;
         }
+
         #contentInsructions {
             font-family: 'latobold';
         }
@@ -87,13 +88,10 @@
         <ul id="contentLinks"></ul>
       </div>
     </div>
-    <div id="instructionModal" class="modal modal-inactive">
+    <div id="instructionModal" class="modal modal-active">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <ul id="contentInsructions">
-            <li><h2>Pan your device to the left or right to view different words that represent circular economy principles.</h2></li>
-            <li><h2>Move the circular cursor over a word to find out more about each principle.</h2></li>
-        </ul>
+        <h2 id="contentInsructions">Look for the four words around you and hover your cursor over them to learn more.</h2>
       </div>
     </div>
     <video id="webcam" autoplay playsinline></video>

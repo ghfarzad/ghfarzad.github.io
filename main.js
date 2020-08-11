@@ -179,12 +179,19 @@ window.onclick = function(event) {
   for (var modal of document.getElementsByClassName('modal')) {
     if (event.target.parentNode.parentNode == modal) {
         modal.style.display = 'none';
+        alert('clicked');
     }
   }
-}
+};
 
 // Start the video stream when the window loads
-window.addEventListener('load', cameraStart, false);
+window.addEventListener(
+    'load',
+    function() {
+        //cameraStart();
+    },
+    false
+);
 
 AFRAME.registerComponent('regenerate', {
 init: function () {
