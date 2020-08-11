@@ -104,8 +104,15 @@ function cameraStart() {
 
 function initializeElement(el)
 {
-    el.setAttribute('scale',    { 'x' : 0.1, 'y' :  0.1, 'z' :  0.1 });
-    el.setAttribute('position', { 'x' : 0,   'y' :  0,   'z' : -3   });
+    el.setAttribute('scale', { 'x' : 0.1, 'y' :  0.1, 'z' :  0.1 });
+
+    var positions = {
+        'regenerate' : { 'x' : -1.9, 'y' : 0, 'z' : -3 },
+        'rethink' :    { 'x' : -1.3, 'y' : 0, 'z' : -3 },
+        'reduce' :     { 'x' : -1.2, 'y' : 0, 'z' : -3 },
+        'reuse' :      { 'x' : -1,   'y' : 0, 'z' : -3 }
+    }
+    el.setAttribute('position', positions[el.getAttributeNames()[0]]);
 }
 
 function initializeMdoelBoundingBox(el)
