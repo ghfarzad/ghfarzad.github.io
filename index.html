@@ -76,57 +76,63 @@
         #contentInsructions {
             font-family: 'latobold';
         }
+
+        #scene {
+            display: none;
+        }
     </style>
     <script src="main.js"></script>
 </head>
 <body>
-    <div id="myModal" class="modal modal-inactive">
+    <div id="definition-modal" class="modal modal-inactive">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span id="definition-close-btn" class="close">&times;</span>
         <h2 id="contentDef"></h2>
         <h3 id="contentFact"></h3>
         <ul id="contentLinks"></ul>
       </div>
     </div>
-    <div id="instructionModal" class="modal modal-active">
+    <div id="instruction-modal" class="modal modal-active">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span id="instruction-close-btn" class="close">&times;</span>
         <h2 id="contentInsructions">Look for the four words around you and hover your cursor over them to learn more.</h2>
       </div>
     </div>
-    <video id="webcam" autoplay playsinline></video>
-    <a-scene vr-mode-ui="enabled: false">
-        <a-assets>
-            <a-asset-item id="regenerate" src="models/glTF/Regenerate_out/Regenerate.gltf"></a-asset-item>
-        </a-assets>
-        <a-assets>
-            <a-asset-item id="reduce" src="models/glTF/Reduce_out/Reduce.gltf"></a-asset-item>
-        </a-assets>
-        <a-assets>
-            <a-asset-item id="rethink" src="models/glTF/Rethink_out/Rethink.gltf"></a-asset-item>
-        </a-assets>
-        <a-assets>
-            <a-asset-item id="reuse" src="models/glTF/Reuse_out/Reuse.gltf"></a-asset-item>
-        </a-assets>
-        <a-entity id="regenerate-wrapper" rotation = "0 0 0">
-            <a-entity regenerate gltf-model="#regenerate"></a-entity>
-        </a-entity>
-        <a-entity rotation = "0 90 0">
-            <a-entity reduce gltf-model="#reduce"></a-entity>
-        </a-entity>
-        <a-entity rotation = "0 -90 0">
-            <a-entity rethink id="rethink-model" gltf-model="#rethink"></a-entity>
-        </a-entity>
-        <a-entity rotation = "0 180 0">
-            <a-entity reuse gltf-model="#reuse"></a-entity>
-        </a-entity>
-        <a-entity camera look-controls>
-            <a-entity cursor="fuse: true; fuseTimeout: 500"
-                position="0 0 -0.6"
-                geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
-                material="color: black; shader: flat">
-            </a-entity>
-        </a-entity>
-    </a-scene>
+    <div id="scene">
+      <video id="webcam" autoplay playsinline></video>
+      <a-scene vr-mode-ui="enabled: false">
+          <a-assets>
+              <a-asset-item id="regenerate" src="models/glTF/Regenerate_out/Regenerate.gltf"></a-asset-item>
+          </a-assets>
+          <a-assets>
+              <a-asset-item id="reduce" src="models/glTF/Reduce_out/Reduce.gltf"></a-asset-item>
+          </a-assets>
+          <a-assets>
+              <a-asset-item id="rethink" src="models/glTF/Rethink_out/Rethink.gltf"></a-asset-item>
+          </a-assets>
+          <a-assets>
+              <a-asset-item id="reuse" src="models/glTF/Reuse_out/Reuse.gltf"></a-asset-item>
+          </a-assets>
+          <a-entity id="regenerate-wrapper" rotation = "0 0 0">
+              <a-entity regenerate gltf-model="#regenerate"></a-entity>
+          </a-entity>
+          <a-entity rotation = "0 90 0">
+              <a-entity reduce gltf-model="#reduce"></a-entity>
+          </a-entity>
+          <a-entity rotation = "0 -90 0">
+              <a-entity rethink id="rethink-model" gltf-model="#rethink"></a-entity>
+          </a-entity>
+          <a-entity rotation = "0 180 0">
+              <a-entity reuse gltf-model="#reuse"></a-entity>
+          </a-entity>
+          <a-entity camera look-controls>
+              <a-entity cursor="fuse: true; fuseTimeout: 500"
+                  position="0 0 -0.6"
+                  geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+                  material="color: black; shader: flat">
+              </a-entity>
+          </a-entity>
+      </a-scene>
+    </div>
 </body>
 </html>

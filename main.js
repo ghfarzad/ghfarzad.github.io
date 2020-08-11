@@ -1,6 +1,5 @@
-function hidePopup(el) {
-    var modal = document.getElementById("myModal");
-    modal.style.display = "none";
+function hidePopup() {
+    document.getElementById('definition-modal').style.display = 'none';
 }
 
 function showPopup(elementName) {
@@ -71,12 +70,12 @@ function showPopup(elementName) {
         document.getElementById('contentLinks').appendChild(node1);
     });
 
-    var modal = document.getElementById("myModal");
-    modal.style.display = "block";
+    var modal = document.getElementById('definition-modal');
+    modal.style.display = 'block';
 
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName('close')[0];
     span.onclick = function() {
-      modal.style.display = "none";
+      modal.style.display = 'none';
     }
 }
 
@@ -176,19 +175,21 @@ function initializeMdoelBoundingBox(el)
         showPopup(el.getAttributeNames()[0]);
     });
     box.addEventListener('mouseleave', function () {
-        hidePopup(el.getAttributeNames()[0]);
+        hidePopup();
     });
 
     el.appendChild(box);
 }
 
 window.onclick = function(event) {
-  for (var modal of document.getElementsByClassName('modal')) {
-    if (event.target.parentNode.parentNode == modal) {
-        modal.style.display = 'none';
+    if (event.target == document.getElementById('definition-close-btn')) {
+        document.getElementById('definition-modal').style.display = 'none';
+    }
+    if (event.target == document.getElementById('instruction-close-btn')) {
+        document.getElementById('instruction-modal').style.display = 'none';
+        document.getElementById('scene').style.display = 'block';
         alert('clicked');
     }
-  }
 };
 
 // Start the video stream when the window loads
