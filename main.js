@@ -111,10 +111,10 @@ function initializeElement(el)
     el.setAttribute('scale', { 'x' : 0.1, 'y' :  0.1, 'z' :  0.1 });
 
     var positions = {
-        'regenerate' : { 'x' : -1.9, 'y' : 0, 'z' : -3 },
-        'rethink' :    { 'x' : -1.3, 'y' : 0, 'z' : -3 },
-        'reduce' :     { 'x' : -1.2, 'y' : 0, 'z' : -3 },
-        'reuse' :      { 'x' : -1,   'y' : 0, 'z' : -3 }
+        'regenerate' : { 'x' : -1.9, 'y' : 0.2, 'z' : -3 },
+        'rethink' :    { 'x' : -1.3, 'y' : 0.2, 'z' : -3 },
+        'reduce' :     { 'x' : -1.2, 'y' : 0.2, 'z' : -3 },
+        'reuse' :      { 'x' : -1,   'y' : 0.2, 'z' : -3 }
     }
     el.setAttribute('position', positions[el.getAttributeNames()[0]]);
 }
@@ -189,6 +189,14 @@ function initializeMdoelBoundingBox(el)
 window.onclick = function(event) {
     if (event.target == document.getElementById('definition-close-btn')) {
         document.getElementById('definition-modal').style.display = 'none';
+
+        var instructions = document.getElementById('instructions');
+        if (instructions) {
+            instructions.remove();
+        }
+
+        var scene = document.querySelector('a-scene');
+        scene.style.display = 'block';
     }
 };
 
@@ -196,7 +204,7 @@ window.onclick = function(event) {
 window.addEventListener(
     'load',
     function() {
-        //cameraStart();
+        cameraStart();
     },
     false
 );

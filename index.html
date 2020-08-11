@@ -82,7 +82,7 @@
       </div>
     </div>
     <video id="webcam" autoplay playsinline></video>
-    <a-scene vr-mode-ui="enabled: false">
+    <a-scene vr-mode-ui="enabled: false" class="invisible">
         <a-assets>
             <a-asset-item id="regenerate" src="models/glTF/Regenerate_out/Regenerate.gltf"></a-asset-item>
         </a-assets>
@@ -95,7 +95,7 @@
         <a-assets>
             <a-asset-item id="reuse" src="models/glTF/Reuse_out/Reuse.gltf"></a-asset-item>
         </a-assets>
-        <a-entity id="regenerate-wrapper" rotation = "0 0 0">
+        <a-entity rotation = "0 0 0">
             <a-entity regenerate gltf-model="#regenerate"></a-entity>
         </a-entity>
         <a-entity rotation = "0 90 0">
@@ -108,7 +108,7 @@
             <a-entity reuse gltf-model="#reuse"></a-entity>
         </a-entity>
         <a-entity camera look-controls>
-            <a-box instructions position="0 0 -3" color="#4CC3D9"></a-box>
+            <a-box instructions position="0 0 -3" id="instructions" class="invisible"></a-box>
             <a-entity cursor="fuse: true; fuseTimeout: 500"
                 position="0 0 -0.6"
                 geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
