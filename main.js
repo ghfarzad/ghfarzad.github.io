@@ -10,7 +10,7 @@ function showPopup(elementName) {
             'hyperlinks'   : [],
             'isDefinition' : false
         },
-        'rethink' : {
+        're-think' : {
             'definition' : 'How do we decouple economic growth from finite resource consumption? This requires redefining our behaviours as consumers and citizens, as well as what our cities could look like in the future.',
             'funFact'    : 'Globally, another 2.5 billion people will be living in urban areas by 2050, putting immense pressure on resources and infrastructure.',
             'hyperlinks' : [
@@ -29,51 +29,51 @@ function showPopup(elementName) {
             ],
             'isDefinition' : true
         },
-        'regenerate': {
+        're-generate': {
             'definition' : 'Restoring and retaining the health of our ecosystems by returning recovered biological resources to the biosphere and shifting to renewable energy sources.',
-            'funFact'    : 'As of 2018, all new planning applications are required to meet the Toronto Green Standard.',
+            'funFact'    : 'As of 2018, all new planning applications are required to meet the Toronto Green Standard',
             'hyperlinks' : [
                 {
                     'link' : 'https://www.arup.com/perspectives/publications/research/section/madrid-and-natural',
-                    'text' : 'How to regulate a city\’s urban environment using nature-based solutions?'
+                    'text' : 'How to regulate a city\’s urban environment using nature-based solutions'
                 },
                 {
                     'link' : 'https://www.toronto.ca/city-government/planning-development/official-plan-guidelines/toronto-green-standard/',
-                    'text' : 'How the City of Toronto is mandating greener development?'
+                    'text' : 'How the City of Toronto is mandating greener development'
                 }
             ],
             'isDefinition' : true
         },
-        'reuse' : {
+        're-use' : {
             'definition' : 'Finding inventive new end-of -life uses that prolong an asset’s life at its optimum value through re-examining supply chains and exploring new ways of collaborating.',
             'funFact'    : '100% of the PVC pipes used for this installation are construction scrap that would have otherwise gone to landfill.',
             'hyperlinks' : [
                 {
                     'link' : 'https://www.arup.com/projects/1-triton-square',
-                    'text' : 'For an office refurbishment in London, UK, Arup’s proposal to refurbish and reuse existing glazing reduced façade costs by 66%.'
+                    'text' : 'For an office refurbishment in London, UK, Arup’s proposal to refurbish and reuse existing glazing reduced façade costs by 66%'
                 },
                 {
                     'link' : 'https://www.arup.com/perspectives/publications/promotional-materials/section/transform-and-resuse-low-carbon-futures-for-existing-buildings',
-                    'text' : 'Read more about how Arup is challenging perceptions about the transformation and reuse of buildings.'
+                    'text' : 'Read more about how Arup is challenging perceptions about the transformation and reuse of buildings'
                 }
             ],
             'isDefinition' : true
         },
-        'reduce' : {
+        're-duce' : {
             'definition' : 'Changing habits to limit energy consumption and preventing waste generation where possible to conserve resources.',
             'funFact'    : 'The City of Toronto has implemented the following Community Reduce & Reuse programs: Urban Harvest, Sewing Repair Hubs, Bicycle Repair Hubs, Community Composting, and Sharing and Reuse Spaces.',
             'hyperlinks' : [
                 {
                     'link' : 'https://www.toronto.ca/wp-content/uploads/2017/10/8ed4-Toronto-Waste-Strategy-Exec-Summary-FINAL-AODA.pdf',
-                    'text' : 'City of Toronto Waste Strategy Summary.'
+                    'text' : 'City of Toronto Waste Strategy Summary'
                 },
                 {
                     'link' : 'https://www.toronto.ca/services-payments/recycling-organics-garbage/long-term-waste-strategy/working-toward-a-circular-economy/',
-                    'text' : 'How the Toronto Waste Strategy relates to Circular Economy.'
+                    'text' : 'How the Toronto Waste Strategy relates to Circular Economy'
                 },
                 {
                     'link' : 'https://www.toronto.ca/services-payments/recycling-organics-garbage/long-term-waste-strategy/waste-reduction/community-reduce-reuse-programs/',
-                    'text' : 'Read more about the City of Toronto’s Community Reduce & Reuse programs.'
+                    'text' : 'Read more about the City of Toronto\’s Community Reduce & Reuse programs'
                 }
             ],
             'isDefinition' : true
@@ -96,6 +96,7 @@ function showPopup(elementName) {
         document.getElementById('contentLinks').appendChild(node1);
     });
 
+    document.getElementById('contentName').innerHTML = content[elementName].isDefinition ? elementName : '';
     document.getElementById('contentDidYouKnow').innerHTML = content[elementName].isDefinition ? 'Did you know?' : '';
 
     var modal = document.getElementById('definition-modal');
@@ -134,10 +135,10 @@ function initializeElement(el)
     el.setAttribute('scale', { 'x' : 0.1, 'y' :  0.1, 'z' :  0.1 });
 
     var positions = {
-        'regenerate' : { 'x' : -1.9, 'y' : 0.2, 'z' : -3 },
-        'rethink' :    { 'x' : -1.3, 'y' : 0.2, 'z' : -3 },
-        'reduce' :     { 'x' : -1.2, 'y' : 0.2, 'z' : -3 },
-        'reuse' :      { 'x' : -1,   'y' : 0.2, 'z' : -3 }
+        're-generate' : { 'x' : -1.9, 'y' : 0.2, 'z' : -3 },
+        're-think' :    { 'x' : -1.3, 'y' : 0.2, 'z' : -3 },
+        're-duce' :     { 'x' : -1.2, 'y' : 0.2, 'z' : -3 },
+        're-use' :      { 'x' : -1,   'y' : 0.2, 'z' : -3 }
     }
     el.setAttribute('position', positions[el.getAttributeNames()[0]]);
 }
@@ -159,28 +160,28 @@ function initializeMdoelBoundingBox(el)
     // TODO: Couldn't reliably get sbbox spec at runtime
     // as 'model-loaded' event seem to get fired prematurley.
     var specs = {
-        'regenerate' : {
+        're-generate' : {
             'centroid': {x: 19.4721050262451, y: 1.694560706615445, z: -0.125},
             'depth': 1.75,
             'height': 5.87168753147125,
             'rotation': {x: 0, y: 0, z: 0},
             'width': 38.9442100524902
         },
-        'rethink' : {
+        're-think' : {
             'centroid': {x: 13.54986095428465, y: 2.3901673816144484, z: -0.125},
             'depth': 1.75,
             'height': 4.933751769363884,
             'rotation': {x: 0, y: 0, z: 0},
             'width': 27.0997219085693
         },
-        'reduce' : {
+        're-duce' : {
             'centroid': {x: 12.9780330657959, y: 2.3430962227284886, z: -0.125},
             'depth': 1.75,
             'height': 4.8326359465718225,
             'rotation': {x: 0, y: 0, z: 0},
             'width': 25.9560661315918
         },
-        'reuse' : {
+        're-use' : {
             'centroid': {x: 10.9138765335083, y: 1.7625523470342137, z: -0.125},
             'depth': 1.75,
             'height': 3.6715481951832727,
@@ -232,7 +233,7 @@ window.addEventListener(
     false
 );
 
-AFRAME.registerComponent('regenerate', {
+AFRAME.registerComponent('re-generate', {
 init: function () {
   var el = this.el;
 
@@ -243,7 +244,7 @@ init: function () {
 }
 });
 
-AFRAME.registerComponent('reduce', {
+AFRAME.registerComponent('re-duce', {
 init: function () {
   var el = this.el;
 
@@ -254,7 +255,7 @@ init: function () {
 }
 });
 
-AFRAME.registerComponent('rethink', {
+AFRAME.registerComponent('re-think', {
 init: function () {
   var el = this.el;
 
@@ -265,7 +266,7 @@ init: function () {
 }
 });
 
-AFRAME.registerComponent('reuse', {
+AFRAME.registerComponent('re-use', {
 init: function () {
   var el = this.el;
 

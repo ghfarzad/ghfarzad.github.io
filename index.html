@@ -55,8 +55,13 @@
           cursor: pointer;
         }
 
-        #contentDef {
+        #contentName {
             font-family: 'latobold';
+            color: #cc0066;
+        }
+
+        #contentDef {
+            font-family: 'lato';
         }
 
         #contentFact {
@@ -69,6 +74,10 @@
             padding: 0;
         }
 
+        #contentDidYouKnow {
+            font-family: 'latobold';
+        }
+
         .pink {
             color: #ffacd6;
         }
@@ -79,6 +88,7 @@
     <div id="definition-modal" class="modal modal-inactive">
       <div class="modal-content">
         <span id="definition-close-btn" class="close">&times;</span>
+        <h3 id="contentName" class="pink"></h3>
         <h3 id="contentDef"></h3>
         <h4 id="contentDidYouKnow" class="pink"></h4>
         <h4 id="contentFact"></h4>
@@ -100,16 +110,16 @@
             <a-asset-item id="reuse" src="models/glTF/Reuse_out/Reuse.gltf"></a-asset-item>
         </a-assets>
         <a-entity rotation = "0 0 0">
-            <a-entity regenerate gltf-model="#regenerate"></a-entity>
+            <a-entity re-generate gltf-model="#regenerate"></a-entity>
         </a-entity>
         <a-entity rotation = "0 90 0">
-            <a-entity reduce gltf-model="#reduce"></a-entity>
+            <a-entity re-duce gltf-model="#reduce"></a-entity>
         </a-entity>
         <a-entity rotation = "0 -90 0">
-            <a-entity rethink id="rethink-model" gltf-model="#rethink"></a-entity>
+            <a-entity re-think id="rethink-model" gltf-model="#rethink"></a-entity>
         </a-entity>
         <a-entity rotation = "0 180 0">
-            <a-entity reuse gltf-model="#reuse"></a-entity>
+            <a-entity re-use gltf-model="#reuse"></a-entity>
         </a-entity>
         <a-entity camera look-controls>
             <a-box instructions position="0 0 -3" id="instructions" class="invisible"></a-box>
