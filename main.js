@@ -78,12 +78,6 @@ function showPopup(elementName) {
     span.onclick = function() {
       modal.style.display = "none";
     }
-
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
 }
 
 var cameraView;
@@ -107,10 +101,6 @@ function cameraStart() {
         console.error("Oops. Something is broken.", error);
     });
 }
-
-// Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);
-
 
 function initializeElement(el)
 {
@@ -184,6 +174,17 @@ function initializeMdoelBoundingBox(el)
 
     el.appendChild(box);
 }
+
+window.onclick = function(event) {
+  for (var modal of document.getElementsByClassName('modal')) {
+    if (event.target.parentNode.parentNode == modal) {
+        modal.style.display = 'none';
+    }
+  }
+}
+
+// Start the video stream when the window loads
+window.addEventListener('load', cameraStart, false);
 
 AFRAME.registerComponent('regenerate', {
 init: function () {
