@@ -50,11 +50,11 @@ function showPopup(elementName) {
             'hyperlinks' : [
                 {
                     'link' : 'https://www.arup.com/projects/1-triton-square',
-                    'text' : 'For an office refurbishment in London, UK, Arup’s proposal to refurbish and reuse existing glazing reduced façade costs by 66%'
+                    'text' : 'How the façade of a building can be refurbished and reused'
                 },
                 {
                     'link' : 'https://www.arup.com/perspectives/publications/promotional-materials/section/transform-and-resuse-low-carbon-futures-for-existing-buildings',
-                    'text' : 'Read more about how Arup is challenging perceptions about the transformation and reuse of buildings'
+                    'text' : 'How Arup is challenging perceptions about the transformation and reuse of buildings'
                 }
             ],
             'isDefinition' : true
@@ -73,7 +73,7 @@ function showPopup(elementName) {
                 },
                 {
                     'link' : 'https://www.toronto.ca/services-payments/recycling-organics-garbage/long-term-waste-strategy/waste-reduction/community-reduce-reuse-programs/',
-                    'text' : 'Read more about the City of Toronto\’s Community Reduce & Reuse programs'
+                    'text' : 'The City of Toronto\’s Community Reduce & Reuse programs'
                 }
             ],
             'isDefinition' : true
